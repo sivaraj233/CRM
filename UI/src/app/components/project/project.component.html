@@ -1,0 +1,4 @@
+<app-side-bar></app-side-bar>
+<div *ngIf="categoryList">
+    <app-dynamic-forms [formData]="data" (loginEvent)="project($event)"></app-dynamic-forms>
+</div>

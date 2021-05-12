@@ -1,0 +1,70 @@
+<form [formGroup]="form">
+  <div class="row">
+    <ng-template ngFor let-input [ngForOf]="formData">
+      <ng-container [ngSwitch]="input.controlType">
+        <ng-template [ngSwitchCase]="'text'">
+          <div class="column">
+            <label>{{ input.labelName }}</label>
+            <input
+              [formControlName]="input.controlName"
+              [type]="input.valueType"
+              [name]="input.controlName"
+            />
+          </div>
+        </ng-template>
+        <ng-template [ngSwitchCase]="'password'">
+          <div class="column">
+            <label>{{ input.labelName }}</label>
+            <input
+              [formControlName]="input.controlName"
+              [type]="input.valueType"
+              [name]="input.controlName"
+            />
+          </div>
+        </ng-template>
+        <ng-template [ngSwitchCase]="'tel'" class="column">
+          <label>{{ input.labelName }}</label>
+          <input
+            [formControlName]="input.controlName"
+            [type]="input.valueType"
+            [name]="input.controlName"
+          />
+        </ng-template>
+        <ng-template [ngSwitchCase]="'number'" class="column">
+          <label>{{ input.labelName }}</label>
+          <input
+            [formControlName]="input.controlName"
+            [type]="input.valueType"
+            [name]="input.controlName"
+          />
+        </ng-template>
+        <ng-template [ngSwitchCase]="'select'" class="column">
+          <div>
+            <label [for]="input.controlName"> {{ input.labelName }}</label>
+            <select
+              [formControlName]="input.controlName"
+              [name]="input.controlName"
+              [id]="input.controlName"
+            >
+              <option
+                *ngFor="let option of input.options"
+                [value]="option.value"
+              >
+                {{ option.optionName }}
+              </option>
+            </select>
+          </div>
+        </ng-template>
+        <ng-template [ngSwitchCase]="'button'">
+          <button
+            [type]="input.valueType"
+            [formAction]="input.valueType"
+            (click)="componentCall()"
+          >
+            {{ input.controlName }}
+          </button>
+        </ng-template>
+      </ng-container>
+    </ng-template>
+  </div>
+</form>

@@ -1,0 +1,33 @@
+<app-side-bar></app-side-bar>
+<div *ngIf="categoryList">
+    <table>
+        <tr>
+          <th>ID</th>
+          <th>category</th>
+        </tr>
+        <tr *ngFor="let row of categoryList">
+          <td>{{ row.category_id }}</td>
+          <td>{{ row.category_description }}</td>
+        </tr>
+      </table>
+      
+</div>
+<div *ngIf="projectList">
+    <table>
+        <tr>
+          <th>ID</th>
+          <th>Project Description</th>
+          <th>Project category</th>
+          <th>Project Location</th>
+          <th>Project Owner</th>
+        </tr>
+        <tr *ngFor="let row of projectList">
+          <td>{{ row.project_id }}</td>
+          <td>{{ row.project_description }}</td>
+          <td>{{ row.project_category }}</td>
+          <td>{{ row.project_location }}</td>
+          <td>{{ row.project_owner }}</td>
+        </tr>
+      </table>
+      
+</div>
